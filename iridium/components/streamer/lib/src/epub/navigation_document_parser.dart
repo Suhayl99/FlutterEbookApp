@@ -85,8 +85,8 @@ class NavigationDocumentParser {
         ? ""
         : first.text.replaceAll(RegExp("\\s+"), " ").trim();
     String? rawHref = first.getAttribute("href");
-    String href = (first.name.local == "a" && !rawHref.isNullOrBlank)
-        ? Href(rawHref!, baseHref: filePath).string
+    String href = (first.name.local == "a" && !rawHref!.isEmpty)
+        ? Href(rawHref, baseHref: filePath).string
         : "#";
     List<Link> children = element
             .getElement("ol", namespace: Namespaces.xhtml)
